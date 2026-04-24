@@ -14,7 +14,7 @@ export interface UseMermaidReturn {
     svg?: string;
 }
 
-export default function useMermaid({ chart, config }: UseMermaidProps): UseMermaidReturn {
+export function useMermaid({ chart, config }: UseMermaidProps): UseMermaidReturn {
     const id = React.useId();
     const [svg, setSvg] = React.useState("");
     const [isLoading, setIsLoading] = React.useState(true);

@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.0] - 2026-04-25 (release)
+
+### Changed
+
+- `useMermaid` hook returns `UseMermaidReturn` type instead of `UseMermaidOptions`
+
 ## [1.0.5] - 2026-04-24
 
 ### Changed

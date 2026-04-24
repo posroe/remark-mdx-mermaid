@@ -34,7 +34,7 @@
         "unist-util-visit": "^5.1.0"
     },
     "peerDependencies": {
-        "react": "^19.2.5"
+        "react": "^18 || ^19"
     },
     "repository": {
         "type": "git",

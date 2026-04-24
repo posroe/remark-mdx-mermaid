@@ -1,8 +1,8 @@
 # remark-mdx-mermaid
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://www.gnu.org/licenses/mit)
-[![npm version](https://badge.fury.io/js/mdx-pagefind.svg)](https://www.npmjs.com/package/mdx-pagefind)
-[![npm download](https://img.shields.io/npm/dt/mdx-pagefind)](https://www.npmjs.com/package/mdx-pagefind)
+[![npm version](https://badge.fury.io/js/remark-mdx-mermaid.svg)](https://www.npmjs.com/package/remark-mdx-mermaid)
+[![npm download](https://img.shields.io/npm/dt/remark-mdx-mermaid)](https://www.npmjs.com/package/remark-mdx-mermaid)
 
 A remark plugin for MDX that transforms fenced [mermaid](https://mermaid.js.org/) code blocks into `<Mermaid>` JSX elements, paired with a React component that renders them as inline SVGs.
 

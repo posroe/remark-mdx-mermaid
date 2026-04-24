@@ -1,0 +1,57 @@
+{
+    "name": "remark-mdx-mermaid",
+    "version": "1.0.0",
+    "type": "module",
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        "./react": {
+            "types": "./dist/react.d.ts",
+            "import": "./dist/react.js"
+        },
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js"
+        }
+    },
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "dev": "tsc --watch",
+        "build": "tsc"
+    },
+    "devDependencies": {
+        "@types/mdast": "^4.0.4",
+        "@types/node": "^25.6.0",
+        "@types/react": "^19.2.14",
+        "typescript": "^5"
+    },
+    "dependencies": {
+        "mdast-util-mdx": "^3.0.0",
+        "mermaid": "^11.14.0",
+        "unified": "^11.0.5",
+        "unist-util-visit": "^5.1.0"
+    },
+    "peerDependencies": {
+        "react": "^19.2.5"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/posroe/remark-mdx-mermaid.git"
+    },
+    "license": "MIT",
+    "keywords": [
+        "mdx",
+        "mermaid",
+        "remark",
+        "unified",
+        "diagram",
+        "flowchart",
+        "graph",
+        "svg",
+        "markdown",
+        "remark-plugin",
+        "remark-mdx-mermaid"
+    ]
+}

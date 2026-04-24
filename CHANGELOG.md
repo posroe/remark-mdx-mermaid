@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.0.1
+
+### Fixed
+
+- Fixed the `warn: incorrect peer dependency` warning for `react` version to `"react": "^18 || ^19"` instead of `"react": "^19.2.5"`
+
 ## [1.0.0] -Initial Release
 
 ### Added

@@ -4,12 +4,17 @@ import React from "react";
 import mermaid, { type MermaidConfig } from "mermaid";
 import { jsx } from "react/jsx-runtime";
 
+export interface MermaidRendered {
+    isRendered: boolean;
+    error?: Error;
+}
+
 export interface MermaidProps {
     chart: string;
     config: MermaidConfig & {
         themeVariables: Record<string, [string, string] | string>;
     };
-    onRendered?: (isRendered: boolean, error?: Error) => void;
+    onRendered?: (result: MermaidRendered) => void;
 }
 
 export default function Mermaid({ chart, config, onRendered }: MermaidProps): React.ReactNode {
@@ -38,10 +43,10 @@ export default function Mermaid({ chart, config, onRendered }: MermaidProps): Re
             )
             .then(({ svg }) => {
                 setSvg(svg);
-                onRendered?.(true);
+                onRendered?.({ isRendered: true });
             })
             .catch((error) => {
-                onRendered?.(false, error);
+                onRendered?.({ isRendered: false, error });
             });
     }, [id, chart, config.darkMode]);
 

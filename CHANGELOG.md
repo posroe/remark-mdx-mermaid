@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [1.0.4] - 2026-04-24
+
+### Added
+
+- Add MermaidRendered type definition for `onRendered` callback prop on the `Mermaid` component
+
 ## [1.0.3] - 2026-04-24
 
 ### Fixed

@@ -9,9 +9,10 @@ export interface MermaidProps {
     config: MermaidConfig & {
         themeVariables: Record<string, [string, string] | string>;
     };
+    onRendered?: (error?: Error) => void;
 }
 
-export default function Mermaid({ chart, config }: MermaidProps): React.ReactNode {
+export default function Mermaid({ chart, config, onRendered }: MermaidProps): React.ReactNode {
     const id = React.useId();
     const [svg, setSvg] = React.useState("");
 
@@ -37,9 +38,10 @@ export default function Mermaid({ chart, config }: MermaidProps): React.ReactNod
             )
             .then(({ svg }) => {
                 setSvg(svg);
+                onRendered?.();
             })
             .catch((error) => {
-                console.error("Error while rendering mermaid", error);
+                onRendered?.(error);
             });
     }, [id, chart, config.darkMode]);
 

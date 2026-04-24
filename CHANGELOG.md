@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [1.1.0] - 2026-04-24
+
+### Added
+
+- `onRendered` callback prop on the `Mermaid` component — called with no arguments on success, or with an Error on failure
+
 ## [1.0.1] - 2026-04-24
 
 ### Fixed

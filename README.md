@@ -4,7 +4,7 @@
 [![npm version](https://badge.fury.io/js/remark-mdx-mermaid.svg)](https://www.npmjs.com/package/remark-mdx-mermaid)
 [![npm download](https://img.shields.io/npm/dt/remark-mdx-mermaid)](https://www.npmjs.com/package/remark-mdx-mermaid)
 
-A remark plugin for MDX that transforms fenced [mermaid](https://mermaid.js.org/) code blocks into `<Mermaid>` JSX elements, paired with a React component that renders them as inline SVGs.
+A remark plugin for MDX that transforms fenced `mermaid` code blocks into `<Mermaid>` JSX elements, paired with a React component that renders them as inline SVGs.
 
 ## Installation
 
@@ -44,7 +44,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {...props}
         config={{
           theme: "base",
-          darkMode: true,
+          darkMode: false,
           themeVariables: {
             primaryColor: ["#e0f2fe", "#0f172a"],
           },
@@ -71,9 +71,26 @@ graph TD
 `themeVariables` supports a `[light, dark]` tuple. When `config.darkMode` is `true`, the second value is used automatically.
 
 ```ts
-darkMode: true, // or false to use light mode
 themeVariables: {
   primaryColor: ["#dbeafe", "#1e3a5f"],  // [light, dark]
   lineColor: "#94a3b8",                  // same in both modes
 }
+```
+
+## onRendered Callback
+
+Use `onRendered` to know when a diagram has finished rendering, or to handle errors.
+
+```tsx
+<Mermaid
+  chart={chart}
+  config={config}
+  onRendered={(error) => {
+    if (error) {
+      console.error("Failed to render diagram", error);
+    } else {
+      console.log("Diagram rendered successfully");
+    }
+  }}
+/>
 ```

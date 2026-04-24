@@ -85,11 +85,11 @@ Use `onRendered` to know when a diagram has finished rendering, or to handle err
 <Mermaid
   chart={chart}
   config={config}
-  onRendered={(error) => {
-    if (error) {
-      console.error("Failed to render diagram", error);
-    } else {
+  onRendered={(isRendered, error) => {
+    if (isRendered) {
       console.log("Diagram rendered successfully");
+    } else {
+      console.error("Failed to render diagram", error);
     }
   }}
 />

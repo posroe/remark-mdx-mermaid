@@ -1,25 +1,24 @@
-"use client"
-
 import React from "react";
 import mermaid, { type MermaidConfig } from "mermaid";
-import { jsx } from "react/jsx-runtime";
 
-export interface MermaidRendered {
-    isRendered: boolean;
-    error?: Error;
-}
-
-export interface MermaidProps {
+export interface UseMermaidProps {
     chart: string;
     config: MermaidConfig & {
         themeVariables: Record<string, [string, string] | string>;
     };
-    onRendered?: (result: MermaidRendered) => void;
 }
 
-export default function Mermaid({ chart, config, onRendered }: MermaidProps): React.ReactNode {
+export interface UseMermaidReturn {
+    isLoading: boolean;
+    error?: Error;
+    svg?: string;
+}
+
+export default function useMermaid({ chart, config }: UseMermaidProps): UseMermaidReturn {
     const id = React.useId();
     const [svg, setSvg] = React.useState("");
+    const [isLoading, setIsLoading] = React.useState(true);
+    const [error, setError] = React.useState<Error | undefined>(undefined);
 
     React.useEffect(() => {
         mermaid.initialize({
@@ -43,15 +42,17 @@ export default function Mermaid({ chart, config, onRendered }: MermaidProps): Re
             )
             .then(({ svg }) => {
                 setSvg(svg);
-                onRendered?.({ isRendered: true });
+                setIsLoading(false);
             })
-            .catch((error) => {
-                onRendered?.({ isRendered: false, error });
+            .catch((err) => {
+                setError(err);
+                setIsLoading(false);
             });
     }, [id, chart, config.darkMode]);
 
-    return jsx("div", {
-        className: "flex justify-center",
-        dangerouslySetInnerHTML: { __html: svg }
-    });
+    return {
+        svg,
+        isLoading,
+        error,
+    }
 }

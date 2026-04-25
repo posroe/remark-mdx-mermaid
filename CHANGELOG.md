@@ -8,6 +8,10 @@ All notable changes to this project will be documented in this file.
 
 - `useMermaid` hook returns `UseMermaidReturn` type instead of `UseMermaidOptions`
 
+### Removed
+
+- Theme variables transformation for dark mode
+
 ## [1.0.5] - 2026-04-24
 
 ### Changed

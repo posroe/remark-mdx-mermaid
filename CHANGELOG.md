@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.1] - 2026-04-26 (release)
+
+### Fixed
+
+- `README.md` because it's not updated
+
 ## [1.1.0] - 2026-04-25 (release)
 
 ### Changed

@@ -32,13 +32,13 @@ export default withMDX(nextConfig);
 ### 2. Build a component with `useMermaid`
 
 ```tsx
-import useMermaid from "remark-mdx-mermaid/react";
+import { useMermaid } from "remark-mdx-mermaid/react";
 
 const config = {
   theme: "base",
   darkMode: false,
   themeVariables: {
-    primaryColor: ["#e0f2fe", "#0f172a"],
+    primaryColor: "#e0f2fe",
   },
 };
 
@@ -80,23 +80,28 @@ graph TD
 
 ## Dark Mode
 
-`themeVariables` supports a `[light, dark]` tuple. When `config.darkMode` is `true`, the second value is used automatically.
+> **Notice:** Custom dark mode was removed in version 1.1.0 because Mermaid sometimes failed to render when switching themes. This feature was unstable and has therefore been deprecated.
 
-```ts
-themeVariables: {
-  primaryColor: ["#dbeafe", "#1e3a5f"],  // [light, dark]
-  lineColor: "#94a3b8",                  // same in both modes
-}
+Recommended to use this with `invert-colors` style with mermaid theming.
+
+### Tailwind CSS
+
+```html
+<div className="dark:invert" dangerouslySetInnerHTML="{{" __html: svg }} />
 ```
 
 ## API
 
-### `useMermaid({ chart, config })`
+### Plugin: `remarkMermaid` (default export from `remark-mdx-mermaid`)
 
-| Parameter | Type                                 | Description                                            |
-| --------- | ------------------------------------ | ------------------------------------------------------ |
-| `chart`   | `string`                             | Mermaid diagram definition string                      |
-| `config`  | `MermaidConfig & { themeVariables }` | Mermaid config with optional dark mode tuple variables |
+Visits all `code` nodes with `lang: "mermaid"` in the MDX AST and replaces them with a `<Mermaid chart="..." />` JSX element. No options required.
+
+### `useMermaid({ chart, config })` (named export from `remark-mdx-mermaid/react`)
+
+| Parameter | Type            | Description                       |
+| --------- | --------------- | --------------------------------- |
+| `chart`   | `string`        | Mermaid diagram definition string |
+| `config`  | `MermaidConfig` | Mermaid config object             |
 
 Returns:
 
@@ -105,3 +110,5 @@ Returns:
 | `svg`       | `string`             | Rendered SVG markup                   |
 | `isLoading` | `boolean`            | `true` while rendering is in progress |
 | `error`     | `Error \| undefined` | Set if rendering failed               |
+
+> **Note:** `mermaid.initialize()` is called only once globally. Subsequent renders reuse the existing configuration.

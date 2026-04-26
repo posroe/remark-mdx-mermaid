@@ -86,8 +86,8 @@ Recommended to use this with `invert-colors` style with mermaid theming.
 
 ### Tailwind CSS
 
-```html
-<div className="dark:invert" dangerouslySetInnerHTML="{{" __html: svg }} />
+```jsx
+<div className="dark:invert" dangerouslySetInnerHTML={{ __html: svg }} />
 ```
 
 ## API

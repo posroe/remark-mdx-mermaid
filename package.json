@@ -44,7 +44,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/posroe/remark-mdx-mermaid.git"
+        "url": "git+https://github.com/posroe/remark-mdx-mermaid.git"
     },
     "license": "MIT",
     "keywords": [

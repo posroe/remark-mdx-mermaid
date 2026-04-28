@@ -1,36 +1,39 @@
 {
     "name": "remark-mdx-mermaid",
     "version": "1.1.1",
+    "description": "A remark plugin for MDX that transforms fenced `mermaid` code blocks into `<Mermaid>` JSX elements, paired with a `useMermaid` React hook that handles rendering.",
     "type": "module",
-    "main": "./dist/index.js",
-    "types": "./dist/index.d.ts",
     "exports": {
         "./react": {
-            "types": "./dist/react.d.ts",
-            "import": "./dist/react.js"
+            "require": "./dist/react.cjs",
+            "import": "./dist/react.js",
+            "types": "./dist/react.d.ts"
         },
         ".": {
-            "types": "./dist/index.d.ts",
-            "import": "./dist/index.js"
+            "require": "./dist/index.cjs",
+            "import": "./dist/index.js",
+            "types": "./dist/index.d.ts"
         }
     },
     "files": [
         "dist"
     ],
     "scripts": {
-        "dev": "tsc --watch",
-        "build": "tsc"
+        "build": "tsup",
+        "dev": "tsup --watch",
+        "test": "vitest run",
+        "test:watch": "vitest"
     },
     "devDependencies": {
         "@types/mdast": "^4.0.4",
         "@types/node": "^25.6.0",
         "@types/react": "^19.2.14",
+        "tsup": "^8.5.1",
         "typescript": "^5"
     },
     "dependencies": {
         "mdast-util-mdx": "^3.0.0",
         "mermaid": "^11.14.0",
-        "unified": "^11.0.5",
         "unist-util-visit": "^5.1.0"
     },
     "peerDependencies": {

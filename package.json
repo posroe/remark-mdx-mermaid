@@ -25,11 +25,13 @@
         "test:watch": "vitest"
     },
     "devDependencies": {
+        "@testing-library/react": "^16.3.2",
         "@types/mdast": "^4.0.4",
         "@types/node": "^25.6.0",
         "@types/react": "^19.2.14",
         "tsup": "^8.5.1",
-        "typescript": "^5"
+        "typescript": "^5",
+        "vitest": "^4.1.5"
     },
     "dependencies": {
         "mdast-util-mdx": "^3.0.0",

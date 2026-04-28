@@ -23,7 +23,7 @@
         "dev": "tsup --watch",
         "test": "vitest run --environment=jsdom",
         "test:watch": "vitest --environment=jsdom",
-        "prepublishOnly": "tsup"
+        "prepublishOnly": "bun run build"
     },
     "devDependencies": {
         "@testing-library/react": "^16.3.2",

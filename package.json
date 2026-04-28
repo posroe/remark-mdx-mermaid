@@ -1,6 +1,6 @@
 {
     "name": "remark-mdx-mermaid",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "description": "A remark plugin for MDX that transforms fenced `mermaid` code blocks into `<Mermaid>` JSX elements, paired with a `useMermaid` React hook that handles rendering.",
     "type": "module",
     "exports": {
